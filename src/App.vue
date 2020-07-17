@@ -37,7 +37,7 @@
           v-show="competenciesRating != null"
           :competencies="competencies"
           :prefilled-rating="competenciesRating"
-          v-on:update:competenciesRating="futureCompetenciesRating = $event;"
+          v-on:update:competenciesRating="updateRadar"
         />
       </div>
       <div class="col-sm-11 col-lg-5 offset-lg-1" v-if="step == 3">
@@ -74,6 +74,10 @@ export default {
     showRadar(event) {
       this.competenciesRating = event;
       this.step = 3;
+      window.scrollTo(0,0);
+    },
+    updateRadar(event) {
+      this.futureCompetenciesRating = event;
       window.scrollTo(0,0);
     }
   }

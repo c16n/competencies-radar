@@ -23,7 +23,10 @@ export default {
   computed: {
     competencies() {
       if (this.competenciesInput) {
-        return this.competenciesInput.split("\n");
+        var competenciesArray = this.competenciesInput.split("\n");
+        return competenciesArray.filter(function (el) {
+          return el != "";
+        });
       }
       return null;
     }
