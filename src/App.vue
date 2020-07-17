@@ -2,7 +2,7 @@
   <div id="app" class="container-fluid mt-2">
     <div class="row">
       <header class="col-sm-12">
-        <img width="50" height="50" src="./public/logo.png">
+        <img width="50" height="50" src="logo.png">
         <h1> Competencies Radar</h1>
       </header>
       <nav class="col-sm-12 mt-3">
