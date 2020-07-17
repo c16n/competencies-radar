@@ -21,12 +21,18 @@ export default {
         datasets: [
           {
             label: "Current state",
-            backgroundColor: "rgba(125, 206, 213, 0.4)",
+            backgroundColor: "rgba(69,123,255,0.2)",
+            borderColor: "rgba(69,123,255,1)",
+            pointBackgroundColor: "rgba(69,123,255,1)",
+            pointBorderColor: "#fff",
             data: []
           },
           {
             label: "Goal",
-            backgroundColor: "rgba(232, 55, 138, 0.2)",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            pointBackgroundColor: "rgba(255,99,132,1)",
+            pointBorderColor: "#fff",
             data: []
           }
         ]
