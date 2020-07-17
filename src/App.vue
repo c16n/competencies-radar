@@ -3,7 +3,7 @@
     <div class="row">
       <header class="col-sm-12">
         <img width="50" height="50" src="logo.png">
-        <h1> Competencies Radar</h1>
+        <h1>Competencies Radar</h1>
       </header>
       <nav class="col-sm-12 mt-3">
         <p>
@@ -15,13 +15,13 @@
         <hr>
       </nav>
       <div class="col-sm-12 col-lg-4" v-if="step == 1">
-        <h1>1. Competencies</h1>
+        <h2>1. Competencies</h2>
         <p>Enter a list of competencies that you want to rate</p>
         <hr>
         <CompetenciesInput v-on:update:competencies="competencies = $event; step = 2;"/>
       </div>
       <div class="col-sm-12 col-lg-4 pt-sm-5 pt-lg-0" v-if="step == 2">
-        <h1>2. Rate yourself</h1>
+        <h2>2. Rate yourself</h2>
         <p>How would you rate yourself right now?</p>
         <hr>
         <CompetenciesRating
@@ -30,7 +30,7 @@
         />
       </div>
       <div class="col-sm-12 col-lg-4 pt-sm-5 pt-lg-0" v-if="step == 3">
-        <h1>3. Set your Goals</h1>
+        <h2>3. Set your Goals</h2>
         <p>Which competencies do you want to improve?</p>
         <hr>
         <CompetenciesRating
@@ -40,7 +40,16 @@
           v-on:update:competenciesRating="updateRadar"
         />
       </div>
-      <div class="col-sm-11 col-lg-5 offset-lg-1" v-if="step == 3">
+      <div class="col-sm-12 col-lg-4 pt-sm-5 pt-lg-0" v-if="step == 4">
+        <h2>You finished your Radar &#127881;</h2>
+        <hr>
+        <button
+          type="button"
+          class="btn btn-primary mt-3 mb-3"
+          v-on:click="createNewRadar"
+        >Create another radar</button>
+      </div>
+      <div class="col-sm-11 col-lg-5 offset-lg-1" v-if="(step == 3 || step == 4)">
         <Radar
           :competenciesRating="competenciesRating"
           :futureCompetenciesRating="futureCompetenciesRating"
@@ -78,7 +87,11 @@ export default {
     },
     updateRadar(event) {
       this.futureCompetenciesRating = event;
+      this.step = 4;
       window.scrollTo(0,0);
+    },
+    createNewRadar() {
+      location.reload();
     }
   }
 };
